@@ -1,21 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react"
+import { AppLoading } from "expo"
+import { useFonts } from "expo-font"
+
+import AppContainer from "./src/router"
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [fontsLoaded] = useFonts({
+    // eslint-disable-next-line global-require
+    "FuturaPT-Book": require("./assets/fonts/FuturaPT-Book.ttf"),
+    // eslint-disable-next-line global-require
+    "FuturaPT-Heavy": require("./assets/fonts/FuturaPT-Heavy.ttf"),
+  })
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  if (!fontsLoaded) {
+    return <AppLoading />
+  }
+
+  return <AppContainer />
+}
