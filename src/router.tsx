@@ -10,15 +10,9 @@ const AppNavigator = createStackNavigator(
   {
     [RouteName.Categories]: {
       screen: CategoriesScreen,
-      navigationOptions: {
-        headerTitle: "Categories",
-      },
     },
     [RouteName.CategoryMeals]: {
       screen: CategoryMealsScreen,
-      navigationOptions: {
-        headerTitle: "Meals",
-      },
     },
     [RouteName.MealDetail]: {
       screen: MealDetailScreen,
