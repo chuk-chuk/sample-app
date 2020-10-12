@@ -3,4 +3,5 @@ export enum RouteName {
   CategoryMeals = "CategoryMeals",
   MealDetail = "MealDetail",
   Favorites = "Favorites",
+  Meals = "Meals",
 }

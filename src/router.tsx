@@ -44,8 +44,36 @@ const AppNavigator = createStackNavigator(
   }
 )
 
+const BottomStackNavigator = createStackNavigator(
+  {
+    [RouteName.Favorites]: {
+      screen: FavoritesScreen,
+    },
+    [RouteName.MealDetail]: {
+      screen: MealDetailScreen,
+    },
+  },
+  {
+    headerMode: "float",
+    defaultNavigationOptions: {
+      animationEnabled: false,
+      headerTintColor: "white",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+      headerStyle: {
+        backgroundColor:
+          Platform.OS === "android" ? Colors.accentColor : Colors.primaryColor,
+        borderRadius: 15,
+        shadowColor: "green",
+        height: 100,
+      },
+    },
+  }
+)
+
 const tabNavigatorConfig = {
-  Meals: {
+  [RouteName.Meals]: {
     screen: AppNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo: any) => {
@@ -56,7 +84,7 @@ const tabNavigatorConfig = {
     },
   },
   [RouteName.Favorites]: {
-    screen: FavoritesScreen,
+    screen: BottomStackNavigator,
     navigationOptions: {
       tabBarLabel: "Favorites!",
       tabBarIcon: (tabInfo: any) => {
