@@ -22,6 +22,23 @@ const styles = StyleSheet.create({
     margin: 15,
     height: 150,
   },
+  container: {
+    flex: 1,
+    borderRadius: 10,
+    shadowColor: "black",
+    shadowOpacity: 0.26,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 10,
+    elevation: 3,
+    padding: 10,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  title: {
+    fontFamily: "FuturaPT-Heavy",
+    fontSize: 22,
+    textAlign: "right",
+  },
 })
 
 export default function CategoriesScreen() {
@@ -40,8 +57,15 @@ export default function CategoriesScreen() {
           })
         }
       >
-        <View>
-          <Text>{itemData.item.title}</Text>
+        <View
+          style={{
+            ...styles.container,
+            ...{ backgroundColor: itemData.item.color },
+          }}
+        >
+          <Text style={styles.title} numberOfLines={2}>
+            {itemData.item.title}
+          </Text>
         </View>
       </TouchableOpacity>
     )
