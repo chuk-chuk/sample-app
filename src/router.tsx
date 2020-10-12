@@ -18,9 +18,6 @@ const AppNavigator = createStackNavigator(
     },
     [RouteName.MealDetail]: {
       screen: MealDetailScreen,
-      navigationOptions: {
-        headerTitle: "Details",
-      },
     },
   },
   {
