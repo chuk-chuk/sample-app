@@ -5,13 +5,11 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Platform,
 } from "react-native"
 import { useNavigation } from "react-navigation-hooks"
 
 import { RouteName } from "../@types"
 import { CATEGORIES } from "../data/dummy-data"
-import Colors from "../theme/colors"
 
 const styles = StyleSheet.create({
   screen: {
@@ -61,12 +59,4 @@ export default function CategoriesScreen() {
 
 CategoriesScreen.navigationOptions = {
   headerTitle: "Categories",
-  headerTintColor: "white",
-  headerStyle: {
-    backgroundColor:
-      Platform.OS === "android" ? Colors.accentColor : Colors.primaryColor,
-    borderRadius: 15,
-    shadowColor: "green",
-    height: 100,
-  },
 }

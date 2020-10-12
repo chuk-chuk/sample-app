@@ -38,8 +38,5 @@ CategoryMealsScreen.navigationOptions = ({ navigation }: any) => {
 
   return {
     headerTitle: selectedCategory,
-    headerTitleStyle: {
-      fontWeight: "bold",
-    },
   }
 }
