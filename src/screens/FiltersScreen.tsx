@@ -1,19 +1,20 @@
 import React from "react"
-
+import { View } from "react-native"
 import { HeaderButtons, Item } from "react-navigation-header-buttons"
-import MealList from "../components/MealList"
-import { MEALS } from "../data/dummy-data"
 import CustomHeaderButton from "../components/HeaderButton"
+import DefaultText from "../components/DefaultText"
 
-export default function FavoritesScreen() {
-  const displayedFavs = MEALS.filter(meal => meal.id === "m2")
-
-  return <MealList listData={displayedFavs} />
+export default function FiltersScreen() {
+  return (
+    <View>
+      <DefaultText>FILTERS GOES HERE</DefaultText>
+    </View>
+  )
 }
 
-FavoritesScreen.navigationOptions = ({ navigation }: any) => {
+FiltersScreen.navigationOptions = ({ navigation }: any) => {
   return {
-    headerTitle: "Your Favorites",
+    headerTitle: "My Filters",
     headerLeft: () => (
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
