@@ -1,16 +1,18 @@
 import React, { ReactElement } from "react"
 import {
   View,
-  Text,
   StyleSheet,
   FlatList,
   TouchableOpacity,
   Platform,
 } from "react-native"
 import { useNavigation } from "react-navigation-hooks"
+import { HeaderButtons, Item } from "react-navigation-header-buttons"
 
 import { RouteName } from "../@types"
 import { CATEGORIES } from "../data/dummy-data"
+import CustomHeaderButton from "../components/HeaderButton"
+import DefaultText from "../components/DefaultText"
 
 const styles = StyleSheet.create({
   screen: {
@@ -69,9 +71,9 @@ export default function CategoriesScreen() {
             ...{ backgroundColor: itemData.item.color },
           }}
         >
-          <Text style={styles.title} numberOfLines={2}>
+          <DefaultText style={styles.title} numberOfLines={2}>
             {itemData.item.title}
-          </Text>
+          </DefaultText>
         </View>
       </TouchableOpacity>
     )
@@ -87,6 +89,17 @@ export default function CategoriesScreen() {
   )
 }
 
-CategoriesScreen.navigationOptions = {
-  headerTitle: "Categories",
+CategoriesScreen.navigationOptions = ({ navigation }: any) => {
+  return {
+    headerTitle: "Categories",
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => navigation.toggleDrawer()}
+        />
+      </HeaderButtons>
+    ),
+  }
 }

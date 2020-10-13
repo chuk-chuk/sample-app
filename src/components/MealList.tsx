@@ -1,7 +1,7 @@
 import React from "react"
 import {
-  Text,
   View,
+  Text,
   FlatList,
   StyleSheet,
   TouchableOpacity,
@@ -10,6 +10,7 @@ import {
 import { useNavigation } from "react-navigation-hooks"
 
 import { RouteName } from "../@types"
+import DefaultText from "./DefaultText"
 
 const styles = StyleSheet.create({
   list: {
@@ -85,9 +86,9 @@ export default function MealList({ listData }: any) {
               </ImageBackground>
             </View>
             <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-              <Text>{itemData.item.duration}m</Text>
-              <Text>{itemData.item.complexity}</Text>
-              <Text>{itemData.item.affordability}</Text>
+              <DefaultText>{itemData.item.duration}m</DefaultText>
+              <DefaultText>{itemData.item.complexity}</DefaultText>
+              <DefaultText>{itemData.item.affordability}</DefaultText>
             </View>
           </View>
         </TouchableOpacity>
