@@ -1,35 +1,70 @@
-import React from "react"
-import { View, Text, StyleSheet, Button } from "react-native"
-import { useNavigation, useNavigationParam } from "react-navigation-hooks"
+import React, { ReactElement, ReactNode, ReactChildren } from "react"
+import { View, StyleSheet, Text, ScrollView, Image } from "react-native"
+import { useNavigationParam } from "react-navigation-hooks"
 import { HeaderButtons, Item } from "react-navigation-header-buttons"
 
-import { RouteName } from "../@types"
 import { MEALS } from "../data/dummy-data"
-import HeaderButton from "../components/HeaderButton"
+import CustomHeaderButton from "../components/HeaderButton"
+import DefaultText from "../components/DefaultText"
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+  title: {
+    fontWeight: "bold",
+    fontSize: 22,
+    textAlign: "center",
+  },
+  details: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 15,
+  },
+  image: {
+    width: "100%",
+    height: 200,
+  },
+  listItem: {
+    marginHorizontal: 20,
+    marginVertical: 10,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    padding: 10,
   },
 })
 
+const ListItem = ({ children }: any) => {
+  return (
+    <View style={styles.listItem}>
+      <DefaultText>{children}</DefaultText>
+    </View>
+  )
+}
+
 export default function MealDetailScreen() {
-  const { navigate } = useNavigation()
   const mealId = useNavigationParam("mealId")
 
-  const selectedMeal = MEALS.find(meal => meal.id === mealId)?.title
+  const selectedMeal = MEALS.find(meal => meal.id === mealId)
 
   return (
-    <View style={styles.screen}>
-      <Text>Meal Detail Screen</Text>
-      <Text>{selectedMeal}</Text>
-      <Button
-        title="Back to Main"
-        onPress={() => navigate(RouteName.Categories)}
-      />
-    </View>
+    <ScrollView>
+      <Image source={{ uri: selectedMeal?.imageUrl }} style={styles.image} />
+      <View style={styles.details}>
+        <DefaultText>{selectedMeal?.duration}m</DefaultText>
+        <DefaultText>{selectedMeal?.complexity}</DefaultText>
+        <DefaultText>{selectedMeal?.affordability}</DefaultText>
+      </View>
+      <Text style={styles.title}>Ingredients</Text>
+      {selectedMeal?.ingredients.map(
+        (item: string): ReactElement => (
+          <ListItem key={item}>{item}</ListItem>
+        )
+      )}
+      <Text style={styles.title}>Steps</Text>
+      {selectedMeal?.steps.map(
+        (step: string): ReactElement => (
+          <ListItem key={step}>{step}</ListItem>
+        )
+      )}
+    </ScrollView>
   )
 }
 
@@ -41,16 +76,12 @@ MealDetailScreen.navigationOptions = ({ navigation }: any) => {
   return {
     headerTitle: selectedMeal,
     headerRight: () => (
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
           title="Favorite"
           iconName="ios-star"
-          onPress={() => console.log("MARKED")}
-        />
-        <Item
-          title="Favorite"
-          iconName="ios-star-outline"
-          onPress={() => console.log("MARKED")}
+          // eslint-disable-next-line no-console
+          onPress={() => console.log("click me!")}
         />
       </HeaderButtons>
     ),
