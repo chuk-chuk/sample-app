@@ -6,17 +6,19 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons"
 import { MEALS } from "../data/dummy-data"
 import CustomHeaderButton from "../components/HeaderButton"
 import DefaultText from "../components/DefaultText"
+import Colors from "../theme/colors"
 
 const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 22,
+    paddingVertical: 15,
     textAlign: "center",
   },
   details: {
     flexDirection: "row",
     justifyContent: "space-around",
-    padding: 15,
+    paddingTop: 15,
   },
   image: {
     width: "100%",
@@ -25,7 +27,8 @@ const styles = StyleSheet.create({
   listItem: {
     marginHorizontal: 20,
     marginVertical: 10,
-    borderColor: "#ccc",
+    borderColor: Colors.secondaryColor,
+    borderRadius: 15,
     borderWidth: 1,
     padding: 10,
   },

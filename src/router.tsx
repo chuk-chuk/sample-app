@@ -31,7 +31,7 @@ const AppNavigator = createStackNavigator(
     headerMode: "float",
     defaultNavigationOptions: {
       animationEnabled: false,
-      headerTintColor: "white",
+      headerTintColor: Colors.backgroundColor,
       headerTitleStyle: {
         fontWeight: "bold",
       },
@@ -41,9 +41,7 @@ const AppNavigator = createStackNavigator(
       headerStyle: {
         backgroundColor:
           Platform.OS === "android" ? Colors.accentColor : Colors.primaryColor,
-        borderRadius: 15,
-        shadowColor: "green",
-        height: 100,
+        height: 80,
       },
     },
   }
@@ -69,9 +67,7 @@ const BottomStackNavigator = createStackNavigator(
       headerStyle: {
         backgroundColor:
           Platform.OS === "android" ? Colors.accentColor : Colors.primaryColor,
-        borderRadius: 15,
-        shadowColor: "green",
-        height: 100,
+        height: 80,
       },
     },
   }
@@ -91,7 +87,7 @@ const tabNavigatorConfig = {
   [RouteName.Favorites]: {
     screen: BottomStackNavigator,
     navigationOptions: {
-      tabBarLabel: "Favorites!",
+      tabBarLabel: "Favorites",
       tabBarIcon: (tabInfo: any) => {
         return <Ionicons name="ios-star" size={25} color={tabInfo.tintColor} />
       },
@@ -112,7 +108,7 @@ const TabNavigator =
           labelStyle: {
             fontWeight: "bold",
           },
-          activeTintColor: Colors.accentColor,
+          activeTintColor: Colors.activeTintColor,
         },
       })
 
@@ -133,9 +129,8 @@ const FiltersNavigator = createStackNavigator(
       headerStyle: {
         backgroundColor:
           Platform.OS === "android" ? Colors.accentColor : Colors.primaryColor,
-        borderRadius: 15,
         shadowColor: "green",
-        height: 100,
+        height: 80,
       },
     },
   }
@@ -158,9 +153,10 @@ const MainNavigator = createDrawerNavigator(
   },
   {
     contentOptions: {
-      activeTintColor: Colors.accentColor,
+      activeTintColor: Colors.primaryColor,
       labelStyle: {
         fontFamily: "FuturaPT-Heavy",
+        fontSize: 18,
       },
     },
   }

@@ -11,6 +11,7 @@ import { useNavigation } from "react-navigation-hooks"
 
 import { RouteName } from "../@types"
 import DefaultText from "./DefaultText"
+import Colors from "../theme/colors"
 
 const styles = StyleSheet.create({
   list: {
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   mealItem: {
     height: 200,
     width: "100%",
-    backgroundColor: "grey",
+    backgroundColor: Colors.extraColor,
     borderRadius: 10,
     overflow: "hidden",
     marginVertical: 10,
@@ -46,13 +47,13 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "FuturaPT-Heavy",
     fontSize: 20,
-    color: "white",
+    color: Colors.backgroundColor,
     textAlign: "center",
   },
   titleContainer: {
-    backgroundColor: "rgba(0,0,0,0.7)",
+    backgroundColor: "rgba(0,0,0,0.6)",
     paddingHorizontal: 12,
-    paddingVertical: 5,
+    paddingVertical: 10,
   },
 })
 
@@ -86,7 +87,7 @@ export default function MealList({ listData }: any) {
               </ImageBackground>
             </View>
             <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-              <DefaultText>{itemData.item.duration}m</DefaultText>
+              <DefaultText>{itemData.item.duration} min</DefaultText>
               <DefaultText>{itemData.item.complexity}</DefaultText>
               <DefaultText>{itemData.item.affordability}</DefaultText>
             </View>

@@ -3,6 +3,7 @@ import {
   View,
   StyleSheet,
   FlatList,
+  Text,
   TouchableOpacity,
   Platform,
 } from "react-native"
@@ -12,7 +13,7 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons"
 import { RouteName } from "../@types"
 import { CATEGORIES } from "../data/dummy-data"
 import CustomHeaderButton from "../components/HeaderButton"
-import DefaultText from "../components/DefaultText"
+import Colors from "../theme/colors"
 
 const styles = StyleSheet.create({
   screen: {
@@ -44,7 +45,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "FuturaPT-Heavy",
-    fontSize: 22,
+    fontSize: 20,
+    color: Colors.secondaryColor,
     textAlign: "right",
   },
 })
@@ -71,9 +73,9 @@ export default function CategoriesScreen() {
             ...{ backgroundColor: itemData.item.color },
           }}
         >
-          <DefaultText style={styles.title} numberOfLines={2}>
+          <Text style={styles.title} numberOfLines={2}>
             {itemData.item.title}
-          </DefaultText>
+          </Text>
         </View>
       </TouchableOpacity>
     )

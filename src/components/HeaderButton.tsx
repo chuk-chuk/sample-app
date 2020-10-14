@@ -9,7 +9,9 @@ export default function CustomHeaderButton(props: any) {
   return (
     <HeaderButton
       {...props}
-      color={Platform.OS === "android" ? "green" : "purple"}
+      color={
+        Platform.OS === "android" ? Colors.accentColor : Colors.backgroundColor
+      }
       IconComponent={Ionicons}
       iconSize={23}
     />

@@ -70,7 +70,7 @@ export default function FiltersScreen({ navigation }: any) {
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.title}>Available filters / Settings</Text>
+      <Text style={styles.title}>Filters Settings</Text>
       <FilterSwitch
         label="Gluten-free"
         state={isGlutenFree}
