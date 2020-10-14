@@ -31,7 +31,10 @@ const AppNavigator = createStackNavigator(
     headerMode: "float",
     defaultNavigationOptions: {
       animationEnabled: false,
-      headerTintColor: Colors.backgroundColor,
+      headerTintColor:
+        Platform.OS === "android"
+          ? Colors.backgroundColor
+          : Colors.primaryColor,
       headerTitleStyle: {
         fontWeight: "bold",
       },
@@ -40,7 +43,9 @@ const AppNavigator = createStackNavigator(
       },
       headerStyle: {
         backgroundColor:
-          Platform.OS === "android" ? Colors.accentColor : Colors.primaryColor,
+          Platform.OS === "android"
+            ? Colors.primaryColor
+            : Colors.backgroundColor,
         height: 80,
       },
     },
@@ -60,13 +65,18 @@ const BottomStackNavigator = createStackNavigator(
     headerMode: "float",
     defaultNavigationOptions: {
       animationEnabled: false,
-      headerTintColor: "white",
+      headerTintColor:
+        Platform.OS === "android"
+          ? Colors.backgroundColor
+          : Colors.primaryColor,
       headerTitleStyle: {
         fontWeight: "bold",
       },
       headerStyle: {
         backgroundColor:
-          Platform.OS === "android" ? Colors.accentColor : Colors.primaryColor,
+          Platform.OS === "android"
+            ? Colors.primaryColor
+            : Colors.backgroundColor,
         height: 80,
       },
     },
@@ -122,14 +132,18 @@ const FiltersNavigator = createStackNavigator(
     headerMode: "float",
     defaultNavigationOptions: {
       animationEnabled: false,
-      headerTintColor: "white",
+      headerTintColor:
+        Platform.OS === "android"
+          ? Colors.backgroundColor
+          : Colors.primaryColor,
       headerTitleStyle: {
         fontWeight: "bold",
       },
       headerStyle: {
         backgroundColor:
-          Platform.OS === "android" ? Colors.accentColor : Colors.primaryColor,
-        shadowColor: "green",
+          Platform.OS === "android"
+            ? Colors.primaryColor
+            : Colors.backgroundColor,
         height: 80,
       },
     },

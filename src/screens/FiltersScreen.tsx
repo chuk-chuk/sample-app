@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: "80%",
-    marginVertical: 15,
+    marginVertical: 10,
   },
 })
 
@@ -38,8 +38,8 @@ const FilterSwitch = ({
     <View style={styles.filterContainer}>
       <Text>{label}</Text>
       <Switch
-        trackColor={{ false: "grey", true: Colors.primaryColor }}
-        thumbTintColor={Platform.OS === "android" ? Colors.primaryColor : ""}
+        trackColor={{ false: "grey", true: Colors.accentColor }}
+        thumbTintColor={Platform.OS === "android" ? Colors.backgroundColor : ""}
         value={state}
         onValueChange={onChange}
       />
