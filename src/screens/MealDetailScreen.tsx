@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, ReactChildren } from "react"
+import React, { ReactElement } from "react"
 import { View, StyleSheet, Text, ScrollView, Image } from "react-native"
 import { useNavigationParam } from "react-navigation-hooks"
 import { HeaderButtons, Item } from "react-navigation-header-buttons"
