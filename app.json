@@ -22,11 +22,12 @@
       "buildNumber": "1"
     },
     "android": {
+      "package": "uk.co.simple.app",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundImage": "./assets/adaptive-icon-bg.png",
         "foregroundImage": "./assets/adaptive-icon-fg.png"
-      },
-      "package": "uk.co.simple.app"
+      }
     },
     "splash": {
       "image": "./assets/splash.png",

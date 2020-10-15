@@ -6,7 +6,10 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "test": "jest --coverage",
-    "lint": "npx tsc && eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "npx tsc && eslint . --ext .js,.jsx,.ts,.tsx",
+    "build:android": "expo build:android --type app-bundle --release-channel ${EXPO_ENV:-dev}-$(jq -r .expo.version app.json)",
+    "build:ios": "expo build:ios --type archive --release-channel ${EXPO_ENV:-dev}-$(jq -r .expo.version app.json)",
+    "expo:publish": "expo publish --release-channel ${EXPO_ENV:-dev}-$(jq -r .expo.version app.json)"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.2.1",
