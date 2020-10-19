@@ -7,11 +7,12 @@
     "version": "0.1.0",
     "platforms": ["ios", "android"],
     "orientation": "portrait",
-    "backgroundColor": "#f9f8f7",
+    "backgroundColor": "#bdacc2",
     "icon": "./assets/icon.png",
     "androidStatusBar": {
       "translucent": false,
-      "backgroundColor": "#ffffff"
+      "barStyle": "light-content",
+      "backgroundColor": "#a834eb"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,16 +24,12 @@
     },
     "android": {
       "package": "uk.co.simple.app",
-      "versionCode": 1,
-      "adaptiveIcon": {
-        "backgroundImage": "./assets/adaptive-icon-bg.png",
-        "foregroundImage": "./assets/adaptive-icon-fg.png"
-      }
+      "versionCode": 1
     },
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      " groundColor": "#ffffff"
+      "backgroundColor": "#7e52ac"
     }
   }
 }
